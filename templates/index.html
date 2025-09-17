@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>AsarezMail - Provider Settings</title>
+  <link crossorigin href="https://fonts.gstatic.com/" rel="preconnect"/>
+  <link as="style" href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+  <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+  <style type="text/tailwindcss">
+    :root {
+      --primary-color: #137fec;
+      --secondary-color: #f0f2f4;
+      --background-color: #ffffff;
+      --text-primary-color: #111418;
+      --text-secondary-color: #617589;
+    }
+    .radio-button:checked {
+      border-color: var(--primary-color);
+      background-image: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27%23137fec%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3ccircle cx=%278%27 cy=%278%27 r=%273%27/%3e%3c/svg%3e');
+    }
+  </style>
+</head>
+<body class="bg-[var(--background-color)]" style='font-family: Inter, "Noto Sans", sans-serif;'>
+
+<div class="relative flex h-auto min-h-screen w-full flex-col overflow-x-hidden">
+  <div class="layout-container flex h-full grow flex-col">
+
+    <!-- Header -->
+    <header class="flex items-center justify-between border-b border-solid border-b-[#f0f2f4] px-10 py-3">
+      <div class="flex items-center gap-4 text-[var(--primary-color)]">
+        <div class="size-8">
+          <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M4 42.4379C4 42.4379 14.0962 36.0744 24 41.1692C35.0664 46.8624 44 42.2078 44 42.2078L44 7.01134C44 7.01134 35.068 11.6577 24.0031 5.96913C14.0971 0.876274 4 7.27094 4 7.27094L4 42.4379Z" fill="currentColor"></path>
+          </svg>
+        </div>
+        <h2 class="text-[var(--text-primary-color)] text-lg font-bold leading-tight">AsarezMail</h2>
+      </div>
+      <div class="flex items-center gap-4">
+        <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="#">Home</a>
+        <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="#">Campaigns</a>
+        <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="#">Templates</a>
+        <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="#">Lists</a>
+        <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="#">Reports</a>
+      </div>
+    </header>
+
+    <!-- Main -->
+    <div class="flex flex-1 justify-center py-10 px-4 sm:px-6 lg:px-8">
+      <div class="w-full max-w-xl space-y-8">
+
+        <!-- Title -->
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight text-[var(--text-primary-color)]">Email Provider Settings</h1>
+          <p class="mt-2 text-sm text-[var(--text-secondary-color)]">Configure your email provider to send emails through AsarezMail.</p>
+        </div>
+
+        <!-- Provider Selection -->
+        <div class="space-y-6">
+          <h3 class="text-lg font-bold text-[var(--text-primary-color)]">Choose your email provider</h3>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            <label class="flex items-center gap-4 rounded-md border p-4 cursor-pointer has-[:checked]:border-[var(--primary-color)] has-[:checked]:ring-2 has-[:checked]:ring-[var(--primary-color)]">
+              <input checked class="radio-button h-5 w-5 border-2 border-[#dbe0e6]" name="email_provider" type="radio" value="gmail"/>
+              <p class="text-sm font-medium text-[var(--text-primary-color)]">Gmail</p>
+            </label>
+            <label class="flex items-center gap-4 rounded-md border p-4 cursor-pointer has-[:checked]:border-[var(--primary-color)] has-[:checked]:ring-2 has-[:checked]:ring-[var(--primary-color)]">
+              <input class="radio-button h-5 w-5 border-2 border-[#dbe0e6]" name="email_provider" type="radio" value="outlook"/>
+              <p class="text-sm font-medium text-[var(--text-primary-color)]">Outlook</p>
+            </label>
+            <label class="flex items-center gap-4 rounded-md border p-4 cursor-pointer has-[:checked]:border-[var(--primary-color)] has-[:checked]:ring-2 has-[:checked]:ring-[var(--primary-color)]">
+              <input class="radio-button h-5 w-5 border-2 border-[#dbe0e6]" name="email_provider" type="radio" value="smtp"/>
+              <p class="text-sm font-medium text-[var(--text-primary-color)]">Custom SMTP</p>
+            </label>
+          </div>
+        </div>
+
+        <!-- Settings Panels -->
+        <div class="space-y-6 rounded-md border border-gray-200 p-6">
+          <!-- Gmail -->
+          <div class="space-y-4" data-provider="gmail">
+            <h3 class="text-lg font-bold text-[var(--text-primary-color)]">Gmail Settings</h3>
+            <div>
+              <label class="block text-sm font-medium" for="gmail_api_key">API Key</label>
+              <input class="form-input mt-1 w-full rounded-md border px-3 py-2" id="gmail_api_key" placeholder="Enter your Gmail API key"/>
+            </div>
+          </div>
+
+          <!-- Outlook -->
+          <div class="space-y-4" data-provider="outlook" style="display: none">
+            <h3 class="text-lg font-bold text-[var(--text-primary-color)]">Outlook Settings</h3>
+            <div>
+              <label class="block text-sm font-medium" for="outlook_client_id">Client ID</label>
+              <input class="form-input mt-1 w-full rounded-md border px-3 py-2" id="outlook_client_id" placeholder="Enter your Outlook Client ID"/>
+            </div>
+            <div>
+              <label class="block text-sm font-medium" for="outlook_client_secret">Client Secret</label>
+              <input class="form-input mt-1 w-full rounded-md border px-3 py-2" id="outlook_client_secret" type="password" placeholder="Enter your Outlook Client Secret"/>
+            </div>
+          </div>
+
+          <!-- SMTP -->
+          <div class="space-y-4" data-provider="smtp" style="display: none">
+            <h3 class="text-lg font-bold text-[var(--text-primary-color)]">Custom SMTP Settings</h3>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium" for="smtp_host">SMTP Host</label>
+                <input class="form-input mt-1 w-full rounded-md border px-3 py-2" id="smtp_host" placeholder="Enter SMTP host"/>
+              </div>
+              <div>
+                <label class="block text-sm font-medium" for="smtp_port">SMTP Port</label>
+                <input class="form-input mt-1 w-full rounded-md border px-3 py-2" id="smtp_port" placeholder="Enter SMTP port"/>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium" for="smtp_username">Username</label>
+              <input class="form-input mt-1 w-full rounded-md border px-3 py-2" id="smtp_username" placeholder="Enter SMTP username"/>
+            </div>
+            <div>
+              <label class="block text-sm font-medium" for="smtp_password">Password</label>
+              <input class="form-input mt-1 w-full rounded-md border px-3 py-2" id="smtp_password" type="password" placeholder="Enter SMTP password"/>
+            </div>
+          </div>
+        </div>
+
+        <!-- Default Email -->
+        <div class="space-y-4 rounded-md border border-gray-200 p-6">
+          <h3 class="text-lg font-bold text-[var(--text-primary-color)]">Default Test Email</h3>
+          <div>
+            <label class="block text-sm font-medium" for="test_email">Email Address</label>
+            <input class="form-input mt-1 w-full rounded-md border px-3 py-2" id="test_email" type="email" placeholder="Enter default test email"/>
+          </div>
+        </div>
+
+        <!-- Save -->
+        <div class="flex justify-between pt-4">
+          <button class="rounded-md bg-gray-100 px-4 h-10 text-sm font-bold hover:bg-gray-200">Send Test Email</button>
+          <button class="rounded-md bg-[var(--primary-color)] px-4 h-10 text-sm font-bold text-white hover:bg-blue-600">Save Settings</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const providerRadios = document.querySelectorAll('input[name="email_provider"]');
+  const providerSettings = {
+    gmail: document.querySelector('[data-provider="gmail"]'),
+    outlook: document.querySelector('[data-provider="outlook"]'),
+    smtp: document.querySelector('[data-provider="smtp"]'),
+  };
+
+  function toggleProviderSettings() {
+    const selected = document.querySelector('input[name="email_provider"]:checked').value;
+    Object.values(providerSettings).forEach(s => s.style.display = 'none');
+    providerSettings[selected].style.display = 'block';
+  }
+
+  providerRadios.forEach(radio => radio.addEventListener('change', toggleProviderSettings));
+  toggleProviderSettings();
+
+  // Load saved settings on page load
+  async function loadSettings() {
+    try {
+      const res = await fetch('/provider/settings');
+      if (!res.ok) return;
+      const data = await res.json();
+
+      // Select provider
+      if (data.provider) {
+        document.querySelector(`input[value="${data.provider}"]`).checked = true;
+        toggleProviderSettings();
+      }
+
+      // Fill Gmail fields
+      if (data.gmail_api_key) document.getElementById('gmail_api_key').value = data.gmail_api_key;
+
+      // Fill Outlook fields
+      if (data.outlook_client_id) document.getElementById('outlook_client_id').value = data.outlook_client_id;
+      if (data.outlook_client_secret) document.getElementById('outlook_client_secret').value = data.outlook_client_secret;
+
+      // Fill SMTP fields
+      if (data.smtp_host) document.getElementById('smtp_host').value = data.smtp_host;
+      if (data.smtp_port) document.getElementById('smtp_port').value = data.smtp_port;
+      if (data.smtp_username) document.getElementById('smtp_username').value = data.smtp_username;
+      if (data.smtp_password) document.getElementById('smtp_password').value = data.smtp_password;
+
+      // Default email
+      if (data.test_email) document.getElementById('test_email').value = data.test_email;
+    } catch (err) {
+      console.error("Error loading settings:", err);
+    }
+  }
+
+  // Save settings
+  async function saveSettings() {
+    const selected = document.querySelector('input[name="email_provider"]:checked').value;
+    const body = {
+      provider: selected,
+      gmail_api_key: document.getElementById('gmail_api_key').value,
+      outlook_client_id: document.getElementById('outlook_client_id').value,
+      outlook_client_secret: document.getElementById('outlook_client_secret').value,
+      smtp_host: document.getElementById('smtp_host').value,
+      smtp_port: document.getElementById('smtp_port').value,
+      smtp_username: document.getElementById('smtp_username').value,
+      smtp_password: document.getElementById('smtp_password').value,
+      test_email: document.getElementById('test_email').value
+    };
+
+    const res = await fetch('/provider/settings', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body)
+    });
+
+    if (res.ok) {
+      alert("Settings saved successfully!");
+    } else {
+      alert("Error saving settings");
+    }
+  }
+
+  // Attach save button
+  document.querySelector("button.bg-[var(--primary-color)]").addEventListener("click", saveSettings);
+
+  // Auto load settings on page load
+  loadSettings();
+</script>
+</body>
+</html>
