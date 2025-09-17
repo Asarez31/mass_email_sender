@@ -8,10 +8,18 @@
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col">
   <!-- Header -->
-  <header class="bg-white shadow p-4 flex justify-between items-center">
-    <h1 class="text-xl font-bold text-gray-800">AsarezMail</h1>
-    <button id="sendBtnTop" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">Send</button>
-  </header>
+      <header class="flex items-center justify-between border-b border-solid border-b-[#f0f2f4] px-10 py-3">
+        <div class="flex items-center gap-4 text-[var(--primary-color)]">
+          <div class="size-20">
+            <img src="{{ url_for('static', filename='img/logo2.png') }}" alt="Mail Icon" class="h-20 w-20 text-[var(--primary-color)]" />
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="\">Home</a>
+          <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="#">Campaigns</a>
+          <a class="text-sm font-medium hover:text-[var(--primary-color)]" href=".\templates\settings.html">Settings</a>
+        </div>
+      </header>
 
   <!-- Main -->
   <main class="flex-grow p-6 flex justify-center">
@@ -108,14 +116,14 @@
     });
 
     // Send
-    sendBtnTop.addEventListener("click", () => popup.classList.remove("hidden"));
+    //sendBtnTop.addEventListener("click", () => popup.classList.remove("hidden"));
     sendBtnBottom.addEventListener("click", () => popup.classList.remove("hidden"));
     closePopup.addEventListener("click", () => popup.classList.add("hidden"));
     popup.addEventListener("click", (e) => { if (e.target === popup) popup.classList.add("hidden"); });
 
     // Back
     backBtn.addEventListener("click", () => {
-      window.location.href = "campaign.html";
+      window.location.href = "/";
     });
   </script>
 </body>

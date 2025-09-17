@@ -17,6 +17,14 @@ os.makedirs(CONFIG_DIR, exist_ok=True)
 def index():
     return render_template("index.html")
 
+@app.route("/templates/settings.html")
+def settings():
+    return render_template("settings.html")
+
+@app.route("/templates/review.html")
+def review():
+    return render_template("review.html")
+
 
 @app.route("/api/settings/provider", methods=["POST"])
 def save_provider_settings():
