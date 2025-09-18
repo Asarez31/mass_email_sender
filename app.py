@@ -95,7 +95,7 @@ def send_test_email():
             return jsonify({"error": "No default test email configured"}), 400
 
         # Create the email
-        msg = MIMEText("This is a test email from AsarezMail ✅")
+        msg = MIMEText("This is a test email from AsarezMail")
         msg["Subject"] = "Test Email - AsarezMail"
         msg["From"] = sender_email
         msg["To"] = recipient
@@ -128,7 +128,7 @@ def send_test_email():
         else:
             return jsonify({"error": "Unsupported provider"}), 400
 
-        return jsonify({"message": f"✅ Test email sent successfully to {recipient}!"}), 200
+        return jsonify({"message": f"Test email sent successfully to {recipient}!"}), 200
     
     except Exception as e:
         return jsonify({

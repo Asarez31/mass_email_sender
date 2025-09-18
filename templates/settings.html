@@ -352,7 +352,7 @@
         /*statusMessage.textContent = "✅ API key saved successfully!";
         statusMessage.classList.add("text-green-600");*/
       } else {
-        alert(data.error || "❌ Error saving settings");
+        alert(data.error || "Error saving settings");
       }
     }
 
@@ -366,11 +366,11 @@
           if (res.ok) {
             alert(data.message || "✅ Test email sent!");
           } else {
-            alert(data.error || "❌ Failed to send test email.");
+            alert(data.error || "Failed to send test email.");
           }
         } catch (err) {
           console.error("Error sending test email:", err);
-          alert("❌ Error communicating with server.");
+          alert("Error communicating with server.");
         }
       });
 
