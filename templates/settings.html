@@ -34,13 +34,13 @@
       <header class="flex items-center justify-between border-b border-solid border-b-[#f0f2f4] px-10 py-3">
         <div class="flex items-center gap-4 text-[var(--primary-color)]">
           <div class="size-20">
-            <img src="{{ url_for('static', filename='img/logo2.png') }}" alt="Mail Icon" class="h-20 w-20 text-[var(--primary-color)]" />
+            <a href="/"><img src="{{ url_for('static', filename='img/logo2.png') }}" alt="Mail Icon"
+              class="h-20 w-20 text-[var(--primary-color)]" /></a>
           </div>
         </div>
         <div class="flex items-center gap-4">
           <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="\">Home</a>
-          <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="#">Campaigns</a>
-          <a class="text-sm font-medium hover:text-[var(--primary-color)]" href=".\templates\settings.html">Settings</a>
+          <a class="text-sm font-medium hover:text-[var(--primary-color)]" href="\settings">Settings</a>
         </div>
       </header>
 
@@ -103,9 +103,9 @@
                   placeholder="Enter your Gmail Address" />
               </div>
               <div>
-                <label class="block text-sm font-medium" for="gmail_api_key">API Key</label>
-                <input class="form-input mt-1 w-full rounded-md border px-3 py-2" id="gmail_api_key"
-                  placeholder="Enter your Gmail API key" />
+                <label class="block text-sm font-medium" for="gmail_api_key">App password</label>
+                <input class="form-input mt-1 w-full rounded-md border px-3 py-2" id="gmail_api_key" type="password"
+                  placeholder="Enter your Gmail app password" />
               </div>
             </div>
 
@@ -359,12 +359,14 @@
     document
       .getElementById("testEmailBtn").addEventListener("click", async () => {
         try {
-          const res = await fetch("/api/send_test_email", {
+          const res = await fetch("/api/send_email", {
             method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ mode: "test" }),
           });
           const data = await res.json();
           if (res.ok) {
-            alert(data.message || "✅ Test email sent!");
+            alert(data.message || "Test email sent!");
           } else {
             alert(data.error || "Failed to send test email.");
           }

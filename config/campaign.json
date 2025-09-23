@@ -1,0 +1,21 @@
+{
+    "subject": "aa",
+    "body": "ssjpop",
+    "recipients": [
+        {
+            "Address": "Address1",
+            "Email": "jacobasare31@gmail.com",
+            "Name": "Jack"
+        },
+        {
+            "Address": "Address2",
+            "Email": "asarezinc@gmail.com",
+            "Name": "Inc"
+        },
+        {
+            "Address": "Address3",
+            "Email": "jakeasvp31@gmail.com",
+            "Name": "Bobby"
+        }
+    ]
+}
